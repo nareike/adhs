@@ -3,7 +3,6 @@ from flask import Flask, Response, request, render_template
 from flask.ext.cors import CORS
 import rdflib
 import argparse
-import os
 
 # command line parameters
 parser = argparse.ArgumentParser()
