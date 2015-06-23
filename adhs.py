@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from flask import Flask, Response, request, render_template
 from flask.ext.cors import CORS
 import rdflib
