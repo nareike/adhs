@@ -1,0 +1,18 @@
+<html>
+
+<head>
+<title>adhs for {{src}}</title>
+</head>
+
+<body>
+    <h1>Ad-hoc SPARQL endpoint for {{src}}</h1>
+    <form action="{{host}}/sparql" method="get">
+        <textarea name="query" rows="12" cols="100">SELECT DISTINCT ?concept WHERE {
+    [] a ?concept .
+}</textarea>
+        <br>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
