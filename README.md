@@ -36,10 +36,6 @@ ADHS is actually the German abbreviation for ADHD.
 
 ## Future Work
 
-* Content negotiation for output format
-* Custom port
-* Nicer web front-end
-* Some optional logging
-* Test SPARQL update + persist to disk
+moved to [TODO.md](TODO.md)
 
 
