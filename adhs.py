@@ -7,6 +7,7 @@ import argparse
 # command line parameters
 parser = argparse.ArgumentParser()
 parser.add_argument('file')
+parser.add_argument('-p', '--port', default=5000, type=int)
 parser.add_argument('-i', '--input', default='guess', choices=[
         'html',
         'hturtle',
@@ -51,5 +52,5 @@ def sparql():
         return render_template('sparql.html', src=args.file, port=request.host)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=args.port)
 
