@@ -31,7 +31,7 @@ The answer format will always be JSON, there is no content negotiation at the mo
 
 ### Use case
 
-One use case behind the **adhs** was to provide a quick possibility to set up different ontologies to test them with the [Visual SPARQL Builder (VSB)](https://github.com/leipert/vsb) without having them to load into a triplestore like Virtuoso. Additionally, since the VSB needs SPARQL 1.1, it is a convenient alternative on systems don't have high enough version of Virtuoso installed.
+One use case behind the **adhs** was to provide a quick possibility to set up different ontologies to test them with the [Visual SPARQL Builder (VSB)](https://github.com/leipert/vsb) without having to load them into a triplestore like Virtuoso. Additionally, since the VSB needs SPARQL 1.1, it is a convenient alternative on systems don't have high enough version of Virtuoso installed.
 
 ### Fun facts
 
