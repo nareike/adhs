@@ -5,17 +5,20 @@ Ad-hoc light weight SPARQL endpoint from a file, using Python Flask and RDFLib
 Sometimes one needs to set up a quick SPARQL endpoint for a local Turtle file without installing a triplestore. This is a quick *demo* how to use the Python 3 microframework [Flask](http://flask.pocoo.org/) and [RDFLib](https://github.com/RDFLib) to provide an **Ad-Hoc SPARQL** endpoint based on a Turtle or RDF/XML file.
 
 ### Usage
+
+Example:
 ```
-./adhs.py file.ttl -i turtle
+./adhs.py file.ttl -i turtle -p 5000
 ```
 
 The `-i` parameter is optional but should be used to specify the format of the file. If it's missing, `rdflib.util.guess_format()` will be used.
 
-Flask will be accessible on default port 5000. Navigate to
+The `-p` parameter is optional as well. If not provided, flask will be accessible on default port 5000. Navigate to
 
 ```
 http://localhost:5000/sparql
 ```
+
 to get a very basic form to enter and submit your queries (the form is just some icing on the cake).
 
 Additionally, the SPARQL endpoint accepts GET requests:
