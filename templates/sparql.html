@@ -10,8 +10,14 @@
         <textarea name="query" rows="12" cols="100">SELECT DISTINCT ?concept WHERE {
     [] a ?concept .
 }</textarea>
-        <br>
-        <button>Submit</button>
+        <br />
+        <label>Result format:</label>
+        <select name="output" value="html">
+          <option value="html">HTML table</option>
+          <option value="json">JSON</option>
+          <option value="xml">XML</option>
+        </select>
+        <input type="submit" value="Run Query" />
     </form>
 </body>
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-from flask import Flask, Response, request, render_template
+from flask import Flask, request, render_template
 from flask.ext.cors import CORS
+from adhs_response import *
 import rdflib
 import argparse
 
@@ -45,9 +46,14 @@ cors = CORS(app)
 @app.route("/sparql", methods=['GET'])
 def sparql():
     if 'query' in request.args:
+        if 'output' in request.args:
+            output = request.args['output']
+        else:
+            output = 'json'
+
         query = request.args['query']
         qres = g.query(query)
-        return Response(qres.serialize(format='json').decode('utf-8'), content_type="application/json")
+        return get_response(qres, output)
     else:
         return render_template('sparql.html', src=args.file, port=request.host)
 
