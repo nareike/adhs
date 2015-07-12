@@ -33,6 +33,6 @@ def html_serialize(result):
     for row in result:
         output += '    <tr>\n'
         for val in row:
-            output += '        <td>%s</td>\n' % val
+            output += '        <td>%s</td>\n' % (val if (val != None) else '')
         output += '    </tr>'
     return output
