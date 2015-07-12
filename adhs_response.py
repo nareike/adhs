@@ -1,4 +1,4 @@
-from flask import Response
+from flask import Response, render_template, Markup
 
 def get_response(qres, output):
     if output == 'json':
@@ -7,6 +7,7 @@ def get_response(qres, output):
                 content_type="application/json"
                 )
     elif output == 'html':
+        return render_template('response.html', tabledata=Markup(html_serialize(qres)))
         return Response(
                 html_serialize(qres),
                 content_type="text/html"
@@ -24,8 +25,7 @@ def html_serialize(result):
     Outputs the result of a rdflib.query
     '''
 
-    output  = '<table border="1">\n'
-    output += '    <tr>\n'
+    output = '    <tr>\n'
     for v in result.vars:
         output += '        <th>%s</th>\n' % v
     output += '    </tr>\n'
@@ -34,7 +34,5 @@ def html_serialize(result):
         output += '    <tr>\n'
         for val in row:
             output += '        <td>%s</td>\n' % val
-        output += '    </tr>\n'
-    output += '</table>\n'
-
+        output += '    </tr>'
     return output
