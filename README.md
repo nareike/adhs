@@ -4,6 +4,14 @@ Ad-hoc light weight SPARQL endpoint from a file, using Python Flask and RDFLib
 ## Details
 Sometimes one needs to set up a quick SPARQL endpoint for a local Turtle file without installing a triplestore. This is a quick *demo* how to use the Python 3 microframework [Flask](http://flask.pocoo.org/) and [RDFLib](https://github.com/RDFLib) to provide an **Ad-Hoc SPARQL** endpoint based on a Turtle or RDF/XML file.
 
+## Installation
+
+adhs requires python > 3. You can install dependencies with `pip`:
+
+```
+pip install -r requirements.txt
+```
+
 ### Usage
 
 Example:
@@ -24,10 +32,10 @@ to get a very basic form to enter and submit your queries (the form is just some
 Additionally, the SPARQL endpoint accepts GET requests:
 
 ```
-http://localhost:5000/sparql?query=select distinct ?s where { ?s a ?c }
+http://localhost:5000/sparql?query=select distinct ?s where { ?s a ?c }&output=(html|json|xml)
 ```
 
-The answer format will always be JSON, there is no content negotiation at the moment but will probably be implemented in the future.
+The default output format is JSON, there is no content negotiation via HTTP headers at the moment but will probably be implemented in the future.
 
 ### Use case
 
@@ -40,5 +48,3 @@ ADHS is actually the German abbreviation for ADHD.
 ## Future Work
 
 moved to [TODO.md](TODO.md)
-
-
