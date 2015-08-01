@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from flask.ext.cors import CORS
 from adhs_response import *
 import rdflib
@@ -42,6 +42,10 @@ with open(args.file, 'r') as fi:
 # set up a micro service using flash
 app = Flask(__name__, static_url_path='')
 cors = CORS(app)
+
+@app.route("/", methods=['GET'])
+def index():
+    return redirect('/sparql')
 
 @app.route("/sparql", methods=['GET'])
 def sparql():
