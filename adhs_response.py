@@ -1,22 +1,18 @@
 from flask import Response, render_template, Markup
 
 def get_response(qres, output):
-    if output == 'json':
+    if output == 'application/sparql-results+json':
         return Response(
                 qres.serialize(format='json').decode('utf-8'),
-                content_type="application/json"
+                content_type='application/sparql-results+json'
                 )
-    elif output == 'html':
+    elif output == 'text/html':
         return render_template('response.html', tabledata=Markup(html_serialize(qres)))
-        return Response(
-                html_serialize(qres),
-                content_type="text/html"
-                )
-    elif output == 'xml':
+    elif output == 'application/sparql-results+xml':
         return Response(
                 qres.serialize(format='xml').decode('utf-8'),
-                content_type="application/xml"
-                )
+                content_type='application/sparql-results+xml')
+
     else:
         return None
 
