@@ -29,13 +29,35 @@ http://localhost:5000/sparql
 
 to get a very basic form to enter and submit your queries (the form is just some icing on the cake).
 
-Additionally, the SPARQL endpoint accepts GET requests:
+Additionally, the SPARQL endpoint accepts GET and POST requests.
+
+Example of a GET request via URL:
 
 ```
-http://localhost:5000/sparql?query=select distinct ?s where { ?s a ?c }&output=(html|json|xml)
+http://localhost:5000/sparql?query=select distinct ?s where { ?s a ?c }&format=<CONTENT-TYPE>
 ```
 
-The default output format is JSON, there is no content negotiation via HTTP headers at the moment but will probably be implemented in the future.
+The `format` has to be specified via the _accept type_ (see below) but in future there might be more fine-grained options.
+
+_Note:_ Instead of `format`, the parameter `output` can be used as well.
+
+Example with cURL:
+
+```
+curl -d "query=select distinct ?c where {?s a ?c}" \
+     -H "Accept: text/html" \
+     localhost:5000/sparql
+```
+
+The content type has to be `application/x-www-form-urlencoded`, whereas the _accept type_ can be one of the following:
+
+* `text/html`
+* `application/sparql-results+json`
+* `application/sparql-results+xml`
+
+Additionally, the _accept type_ can also be set with the `format` (or alternatively) `output` parameter.
+
+If no accept type is specified, the default type is `text/html` unless it's overridden with `format` or `output`. When an _accept type_ is set via content negotiation and as well with the `format` or `output` parameter, the parameter takes precedence over the content negotiation.
 
 ### Use case
 
