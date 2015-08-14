@@ -61,6 +61,13 @@ Additionally, the _accept type_ can also be set with the `format` (or alternativ
 
 If no accept type is specified, the default type is `text/html` unless it's overridden with `format` or `output`. When an _accept type_ is set via content negotiation and as well with the `format` or `output` parameter, the parameter takes precedence over the content negotiation.
 
+### Docker Image
+
+adhs is available at hub.docker.com.
+You can just serve a local file with the following docker command.
+
+    docker run -i -t --rm -p 80:80 -v $PWD:/data -e ADHS_FILE=/data/ontology.ttl nareike-adhs:latest
+
 ### Use case
 
 One use case behind the **adhs** was to provide a quick possibility to set up different ontologies to test them with the [Visual SPARQL Builder (VSB)](https://github.com/leipert/vsb) without having to load them into a triplestore like Virtuoso. Additionally, since the VSB needs SPARQL 1.1, it is a convenient alternative on systems don't have high enough version of Virtuoso installed.
