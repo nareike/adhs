@@ -63,10 +63,18 @@ If no accept type is specified, the default type is `text/html` unless it's over
 
 ### Docker Image
 
-adhs is available at hub.docker.com.
-You can just serve a local file with the following docker command.
+adhs is also available as an automatic image build at hub.docker.com, so you can serve a local file with the following docker command:
 
-    docker run -i -t --rm -p 80:80 -v $PWD:/data -e ADHS_FILE=/data/ontology.ttl nareike-adhs:latest
+    docker run -i -t --rm -p 80:80 -v $PWD:/data -e ADHS_FILE=/data/ontology.ttl eccenca/adhs:latest
+
+adhs docker understands the following environment variables:
+
+- `ADHS_FILE` corresponds to the file parameter of adhs
+- `ADHS_INPUT` corresponds to the optional input parameter `-i`.
+
+In dockerized adhs, the port is set to `80` and the host to `0.0.0.0` (all interfaces).
+Volume is set to `/data` so you can mount your data directory into it.
+In addition to that `/opt/adhs/templates` is also a volume if you want to overwrite the templates.
 
 ### Use case
 

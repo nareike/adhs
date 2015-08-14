@@ -36,6 +36,7 @@ RUN mkdir /data
 COPY adhs.ttl /data/adhs.ttl
 
 VOLUME /data
+VOLUME /opt/adhs/templates
 EXPOSE 80
 
 ENV ADHS_INPUT turtle
