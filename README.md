@@ -21,6 +21,8 @@ Example:
 
 The `-i` parameter is optional but should be used to specify the format of the file. If it's missing, `rdflib.util.guess_format()` will be used.
 
+The parameter `--host` is optional too, and defines the interfaces where the hosts is listening (`127.0.0.1` for local only, `0.0.0.0` for all interfaces).
+
 The `-p` parameter is optional as well. If not provided, flask will be accessible on default port 5000. Navigate to
 
 ```
