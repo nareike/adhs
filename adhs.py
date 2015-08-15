@@ -9,6 +9,7 @@ import argparse
 # command line parameters
 parser = argparse.ArgumentParser()
 parser.add_argument('file')
+parser.add_argument('--host', default='127.0.0.1', type=str)
 parser.add_argument('-p', '--port', default=5000, type=int)
 parser.add_argument('-i', '--input', default='guess', choices=[
         'html',
@@ -95,5 +96,5 @@ def get_pref_content_type(request):
         return 'text/html'
 
 if __name__ == "__main__":
-    app.run(port=args.port)
+    app.run(host=args.host,port=args.port)
 
