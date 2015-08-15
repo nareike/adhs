@@ -1,0 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://usefulinc.com/ns/doap#> .
+
+<https://github.com/nareike/adhs#id> a :Project ;
+    :name "adhs" ;
+    :homepage <https://github.com/nareike/adhs> ;
+    :bug-database <https://github.com/nareike/adhs/issues> ;
+    :created "2015-06-23" ;
+    :description """Ad-hoc light weight SPARQL endpoint from a file, using Python Flask and RDFlib"""@en ;
+    :license <http://spdx.org/licenses/MIT> ;
+    :maintainer <http://aksw.org/AndreasNareike>;
+.
+
+<http://aksw.org/AndreasNareike> a foaf:Person ;
+    foaf:homepage <http://aksw.org/AndreasNareike.html> ;
+    foaf:name "Andreas Nareike" ;
+.
+
