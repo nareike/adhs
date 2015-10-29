@@ -61,6 +61,21 @@ Additionally, the _accept type_ can also be set with the `format` (or alternativ
 
 If no accept type is specified, the default type is `text/html` unless it's overridden with `format` or `output`. When an _accept type_ is set via content negotiation and as well with the `format` or `output` parameter, the parameter takes precedence over the content negotiation.
 
+### Docker Image
+
+adhs is also available as an automatic image build at hub.docker.com, so you can serve a local file with the following docker command:
+
+    docker run -i -t --rm -p 80:80 -v $PWD:/data -e ADHS_FILE=/data/ontology.ttl eccenca/adhs:latest
+
+adhs docker understands the following environment variables:
+
+- `ADHS_FILE` corresponds to the file parameter of adhs
+- `ADHS_INPUT` corresponds to the optional input parameter `-i`.
+
+In dockerized adhs, the port is set to `80` and the host to `0.0.0.0` (all interfaces).
+Volume is set to `/data` so you can mount your data directory into it.
+In addition to that `/opt/adhs/templates` is also a volume if you want to overwrite the templates.
+
 ### Use case
 
 One use case behind the **adhs** was to provide a quick possibility to set up different ontologies to test them with the [Visual SPARQL Builder (VSB)](https://github.com/leipert/vsb) without having to load them into a triplestore like Virtuoso. Additionally, since the VSB needs SPARQL 1.1, it is a convenient alternative on systems don't have high enough version of Virtuoso installed.
